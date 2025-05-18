@@ -1,0 +1,12 @@
+[submodule "include/googletest"]
+	path = include/googletest
+	url = https://github.com/google/googletest.git
+[submodule "include/abseil"]
+	path = include/abseil
+	url = https://github.com/abseil/abseil-cpp.git
+[submodule "include/crow"]
+	path = include/crow
+	url = https://github.com/CrowCpp/Crow.git
+[submodule "include/asio"]
+	path = include/asio
+	url = https://github.com/chriskohlhoff/asio.git

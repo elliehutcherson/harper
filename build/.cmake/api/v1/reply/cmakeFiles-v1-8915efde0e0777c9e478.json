@@ -1,0 +1,621 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.26.2/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Darwin-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.26.2/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/3.26.2/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Darwin.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Apple-AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Apple-Clang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Apple-AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Apple-Clang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"path" : "include/googletest/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"path" : "include/googletest/googlemock/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "include/googletest/googlemock/cmake/gmock.pc.in"
+		},
+		{
+			"path" : "include/googletest/googlemock/cmake/gmock_main.pc.in"
+		},
+		{
+			"path" : "include/googletest/googletest/CMakeLists.txt"
+		},
+		{
+			"path" : "include/googletest/googletest/cmake/internal_utils.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakePackageConfigHelpers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
+		},
+		{
+			"path" : "include/googletest/googletest/cmake/Config.cmake.in"
+		},
+		{
+			"path" : "include/googletest/googletest/cmake/gtest.pc.in"
+		},
+		{
+			"path" : "include/googletest/googletest/cmake/gtest_main.pc.in"
+		},
+		{
+			"path" : "include/abseil/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CTest.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CTestUseLaunchers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CTestTargets.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/DartConfiguration.tcl.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakePackageConfigHelpers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"path" : "include/abseil/CMake/AbseilDll.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeParseArguments.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"path" : "include/abseil/CMake/AbseilHelpers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeParseArguments.cmake"
+		},
+		{
+			"path" : "include/abseil/absl/copts/AbseilConfigureCopts.cmake"
+		},
+		{
+			"path" : "include/abseil/absl/copts/GENERATED_AbseilCopts.cmake"
+		},
+		{
+			"path" : "include/abseil/CMake/AbseilDll.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeParseArguments.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"path" : "include/abseil/absl/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/base/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/algorithm/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/cleanup/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/container/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/crc/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/debugging/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/flags/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/functional/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/hash/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/log/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/memory/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/meta/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/numeric/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/profiling/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/random/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/status/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/strings/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/synchronization/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/time/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/types/CMakeLists.txt"
+		},
+		{
+			"path" : "include/abseil/absl/utility/CMakeLists.txt"
+		},
+		{
+			"path" : "include/crow/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPython3.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPython/Support.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPython3.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPython/Support.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "include/crow/cmake/Findasio.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CMakePackageConfigHelpers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/WriteBasicConfigVersionFile.cmake"
+		},
+		{
+			"path" : "include/crow/cmake/CrowConfig.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/usr/local/Cellar/cmake/3.26.2/share/cmake/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"path" : "include/crow/cmake/cmake_uninstall.cmake.in"
+		},
+		{
+			"path" : "src/CMakeLists.txt"
+		},
+		{
+			"path" : "tests/CMakeLists.txt"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/Users/ellie/Projects/harper/build",
+		"source" : "/Users/ellie/Projects/harper"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

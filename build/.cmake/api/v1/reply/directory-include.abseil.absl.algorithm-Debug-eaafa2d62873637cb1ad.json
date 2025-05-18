@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "include/abseil/absl/algorithm",
+		"source" : "include/abseil/absl/algorithm"
+	}
+}
