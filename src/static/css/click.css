@@ -1,6 +1,6 @@
 /* Left section styles with banner */
 .left-section {
-    flex: 1;
+    flex: 1.2;
     display: flex;
     flex-direction: column; /* Stack banner above image */
     background-color: #f8f9fa;
@@ -110,6 +110,27 @@
     font-size: 0.9rem;
 }
 
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-15px) scale(1.05);
+    }
+    50% {
+        transform: translateY(5px) scale(0.95);
+    }
+    75% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+/* Class to apply the bounce animation */
+.image-bounce {
+    animation: bounce 0.5s ease;
+}
+
 .image-container {
     flex-grow: 1; /* Allow image container to fill remaining space */
     display: flex;
@@ -117,12 +138,18 @@
     align-items: center;
 }
 
+/* Make the image clickable with a cursor pointer */
 .image-container img {
     max-width: 100%;
-    max-height: 70%;
+    max-height: 75%;
     object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Change cursor to show it's clickable */
+    transition: transform 0.2s ease; /* Smooth transform for hover effect */
+}
+
+/* Optional: Add a subtle hover effect */
+.image-container img:hover {
+    transform: scale(1.02);
 }
 
 /* Responsive adjustments for smaller screens */

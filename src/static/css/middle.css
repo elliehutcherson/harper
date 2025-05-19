@@ -1,6 +1,6 @@
 /* Middle section styles */
 .middle-section {
-    flex: 2;
+    flex: 1.8;
     display: flex;
     flex-direction: column;
     padding: 2rem;
