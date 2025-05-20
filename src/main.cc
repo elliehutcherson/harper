@@ -29,7 +29,7 @@ int main() {
     ctx["stats"] = harper::Stats().ToJson();
 
     // Shop list
-    ctx["shop"] = harper::GetShopJson();
+    ctx["items"] = harper::GetShopJson();
 
     // Render the template with the context
     return crow::mustache::load("index.html").render(ctx);

@@ -1,0 +1,18 @@
+<section class="middle-section">
+  <div class="title-container">
+    <h1>{{title}}</h1>
+  </div>
+  <div class="update-container">
+    <p class="update-message">Time to start baking!</p>
+    <p class="update-time">Last updated: Never</p>
+  </div>
+  <div class="stats-container">
+    <h2>Statistics</h2>
+    {{#stats}}
+    <div class="stat-item">
+      <div class="stat-label">{{label}}</div>
+      <div id="{{id}}" class="stat-value">{{value}}</div>
+    </div>
+    {{/stats}}
+  </div>
+</section>

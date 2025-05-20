@@ -1,0 +1,43 @@
+<section class="right-section">
+    <h2>Bakery Equipment</h2>
+    <div class="items-list">
+        {{#items}}
+        <div class="item-bar">
+            <div class="item-content">
+                <!-- Main visible content -->
+                <div class="item-header">
+                    <div class="item-title">{{name}}</div>
+                    <div class="item-price">${{price}}</div>
+                </div>
+                
+                <!-- Progress bar -->
+                <div class="item-progress">
+                    <div class="progress-fill" style="width: {{percentage}}%"></div>
+                </div>
+                
+                <!-- Dropdown that appears on hover -->
+                <div class="item-dropdown">
+                    <div class="dropdown-content">
+                        <p class="item-description">{{description}}</p>
+                        <div class="item-details">
+                            <div class="item-detail-row">
+                                <span class="detail-label">Sprinkles Per Cycle:</span>
+                                <span class="detail-value">{{sprinkles_per_cycle}}</span>
+                            </div>
+                            <div class="item-detail-row">
+                                <span class="detail-label">Cycles Per Minute:</span>
+                                <span class="detail-value">{{cycles_per_minute}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Item count on the right -->
+            <div class="item-count-container">
+                <div class="item-count">{{count}}</div>
+            </div>
+        </div>
+        {{/items}}
+    </div>
+</section>

@@ -4,7 +4,7 @@ export class Shop {
    * @property {Map<BigInt, Item>} items - Map of id to Item instances
    * @property {Function} onItemChange - Callback for when any item changes
    */
-  constructor(containerSelector = '.item-list') {
+  constructor(containerSelector = '.item-list', isMobile = false) {
     // Find the container element
     this.container = document.querySelector(containerSelector);
     if (!this.container) {
@@ -16,14 +16,9 @@ export class Shop {
 
     // Load initial items
     this.loadItems();
-  }
-
-  /**
-   * Update based on cycle properties
-   */
-  update(currentSprinkles) {
-    // Todo: Implement logic to update the shop based on current sprinkles
-    console.log('Updating shop with current sprinkles:', currentSprinkles);
+    
+    // Set up styles
+    this.setupStyles();
   }
 
   /**
@@ -43,6 +38,54 @@ export class Shop {
       // Store the proxied item
       this.items.set(item.id, item);
     });
+  }
+
+  /**
+   * Sets up event listeners
+   */
+  setupEventListeners() {
+    if (!this.isMobile) return;
+
+    for (const item of this.items.values()) {
+      item.setupEventListeners();
+    }
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function (e) {
+      // Close all open dropdowns
+      document.querySelectorAll('.item-dropdown.active').forEach(d => {
+        d.classList.remove('active');
+      });
+    });
+  }
+
+  /**
+   * Sets up styles for the shop
+   */
+  setupStyles() {
+    if (!this.isMobile) return;
+    // Add mobile-specific CSS
+    const style = document.createElement('style');
+    style.textContent = `
+            .item-dropdown {
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            .item-dropdown.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+        `;
+    document.head.appendChild(style);
+  }
+
+  /**
+   * Update based on cycle properties
+   */
+  update(currentSprinkles) {
+    // Todo: Implement logic to update the shop based on current sprinkles
+    console.log('Updating shop with current sprinkles:', currentSprinkles);
   }
 
   /**
@@ -246,8 +289,16 @@ export class Item {
    * @property {number} cycles_per_minute - Cycles completed per minute
    * @property {BigInt} count - The number of items owned
    * @property {HTMLElement} element - Reference to the HTML element
+   * @property {HTMLElement} itemBarElement - Element to catch hover events
+   * @property {HTMLElement} itemCountElement - Element to display the count
+   * @property {HTMLElement} titleElement - Element to display the title
+   * @property {HTMLElement} priceElement - Element to display the price
+   * @property {HTMLElement} descriptionElement - Element to display the description
+   * @property {HTMLElement} detailRows - Element to display the details
+   * @property {HTMLElement} countElement - Element to display the count
+   * @property {HTMLElement} progressFillElement - Element to display the progress
    */
-  constructor(element) {
+  constructor(element, isMobile = false) {
     if (!(element instanceof HTMLElement)) {
       throw new Error('Expected an HTMLElement');
     }
@@ -256,6 +307,7 @@ export class Item {
     this.element = element;
 
     // Initialize with default values
+    this.isMobile = isMobile;
     this.id = BigInt(0);
     this.name = '';
     this.description = '';
@@ -263,6 +315,14 @@ export class Item {
     this.sprinkles_per_cycle = 0.0;
     this.cycles_per_minute = 0.0;
     this.count = BigInt(0);
+    this.itemBarElement = this.element.querySelector('.item-bar');
+    this.titleElement = this.element.querySelector('.item-title');
+    this.priceElement = this.element.querySelector('.item-price');
+    this.descriptionElement = this.element.querySelector('.item-description');
+    this.detailRows = this.element.querySelectorAll('.item-detail-row');
+    this.countElement = this.element.querySelector('.item-count');
+    this.progressFillElement = this.element.querySelector('.progress-fill');
+    this.dropdownContentElement = this.element.querySelector('.dropdown-content');
 
     // Parse the element
     this.parseElement(element);
@@ -290,55 +350,91 @@ export class Item {
    */
   parseElement(element) {
     // Extract name
-    const titleElement = element.querySelector('.item-title');
-    if (titleElement) {
-      this.name = titleElement.textContent.trim();
+    if (this.titleElement) {
+      this.name = this.titleElement.textContent.trim();
     }
 
     // Extract price (convert to BigInt cents for uint64_t)
-    const priceElement = element.querySelector('.item-price');
-    if (priceElement) {
+    if (this.priceElement) {
       // Get the raw value attribute if available, otherwise parse the text
-      if (priceElement.hasAttribute('value')) {
-        this.price = BigInt(priceElement.getAttribute('value'));
+      if (this.priceElement.hasAttribute('value')) {
+        this.price = BigInt(this.priceElement.getAttribute('value'));
       } else {
         // Remove $ and convert to cents (multiply by 100)
-        const priceText = priceElement.textContent.replace('$', '').trim();
+        const priceText = this.priceElement.textContent.replace('$', '').trim();
         this.price = BigInt(Math.round(parseFloat(priceText) * 100));
       }
     }
 
     // Extract description
-    const descriptionElement = element.querySelector('.item-description');
-    if (descriptionElement) {
-      this.description = descriptionElement.textContent.trim();
+    if (this.descriptionElement) {
+      this.description = this.descriptionElement.textContent.trim();
     }
 
     // Extract sprinkles_per_cycle (fixing the selector issue)
-    const detailRows = element.querySelectorAll('.item-detail-row');
-    detailRows.forEach(row => {
+    this.detailRows.forEach(row => {
       const label = row.querySelector('.detail-label');
       const value = row.querySelector('.detail-value');
 
-      if (label && value) {
-        if (label.textContent.includes('Sprinkles Per Cycle')) {
-          this.sprinkles_per_cycle = parseFloat(value.textContent.trim());
-        } else if (label.textContent.includes('Cycles Per Minute')) {
-          this.cycles_per_minute = parseFloat(value.textContent.trim());
-        }
+      if (!label || !value) return;
+
+      if (label.textContent.includes('Sprinkles Per Cycle')) {
+        this.sprinkles_per_cycle = parseFloat(value.textContent.trim());
+      } else if (label.textContent.includes('Cycles Per Minute')) {
+        this.cycles_per_minute = parseFloat(value.textContent.trim());
       }
     });
 
     // Extract count
-    const countElement = element.querySelector('.item-count');
-    if (countElement) {
-      this.count = BigInt(countElement.textContent.trim());
+    if (this.countElement) {
+      this.count = BigInt(this.countElement.textContent.trim());
     }
 
     // Generate an ID if not present
     if (this.id === BigInt(0)) {
       this.id = this.generateId();
     }
+  }
+
+  /**
+   * Sets up event listeners
+   */
+  setupEventListeners() {
+    if (!this.itemBarElement) return;
+    if (!this.isMobile) return;
+
+    this.element.addEventListener('click', function (e) {
+      // Toggle dropdown visibility
+      const dropdown = this.querySelector('.item-dropdown');
+
+      // Close all other open dropdowns
+      document.querySelectorAll('.item-dropdown.active').forEach(d => {
+        if (d !== dropdown) {
+          d.classList.remove('active');
+        }
+      });
+
+      // Toggle this dropdown
+      dropdown.classList.toggle('active');
+
+      // Prevent event bubbling
+      e.stopPropagation();
+    });
+
+    // Add click handlers for dropdown close buttons
+    this.dropdownContentElement.addEventListener('click', function (e) {
+      // Check if click was on the close button (::after)
+      const rect = this.getBoundingClientRect();
+      const closeButtonX = rect.right - 30;
+      const closeButtonY = rect.top + 20;
+
+      if (e.clientX >= closeButtonX && e.clientX <= rect.right &&
+        e.clientY >= rect.top && e.clientY <= closeButtonY) {
+        // Click was on close button
+        this.closest('.item-dropdown').classList.remove('active');
+        e.stopPropagation();
+      }
+    });
   }
 
   /**
@@ -349,26 +445,23 @@ export class Item {
   updateHTML(property, value) {
     switch (property) {
       case 'name':
-        const titleElement = this.element.querySelector('.item-title');
-        if (titleElement) {
-          titleElement.textContent = value;
+        if (this.titleElement) {
+          this.titleElement.textContent = value;
         }
         break;
 
       case 'description':
-        const descriptionElement = this.element.querySelector('.item-description');
-        if (descriptionElement) {
-          descriptionElement.textContent = value;
+        if (this.descriptionElement) {
+          this.descriptionElement.textContent = value;
         }
         break;
 
       case 'price':
-        const priceElement = this.element.querySelector('.item-price');
-        if (priceElement) {
+        if (this.priceElement) {
           // Convert the BigInt to a dollar amount string
           const dollars = Number(value) / 100;
-          priceElement.setAttribute('value', value.toString());
-          priceElement.textContent = `$${dollars.toFixed(2)}`;
+          this.priceElement.setAttribute('value', value.toString());
+          this.priceElement.textContent = `$${dollars.toFixed(2)}`;
         }
         break;
 
@@ -381,9 +474,8 @@ export class Item {
         break;
 
       case 'count':
-        const countElement = this.element.querySelector('.item-count');
-        if (countElement) {
-          countElement.textContent = value.toString();
+        if (this.countElement) {
+          this.countElement.textContent = value.toString();
         }
         break;
     }
@@ -398,12 +490,13 @@ export class Item {
     const detailRows = this.element.querySelectorAll('.item-detail-row');
     detailRows.forEach(row => {
       const label = row.querySelector('.detail-label');
-      if (label && label.textContent.includes(labelText)) {
-        const valueElement = row.querySelector('.detail-value');
-        if (valueElement) {
-          valueElement.textContent = value.toString();
-        }
-      }
+      // Check if the label text includes the specified text
+      if (!label || label.textContent.includes(labelText)) return;
+      // Find the value element in the same row
+      const valueElement = row.querySelector('.detail-value');
+      if (!valueElement) return;
+
+      valueElement.textContent = value.toString();
     });
   }
 
@@ -413,10 +506,9 @@ export class Item {
    */
   update(properties) {
     for (const [key, value] of Object.entries(properties)) {
-      if (this.hasOwnProperty(key)) {
-        // This will trigger the proxy setter which updates the HTML
-        this[key] = value;
-      }
+      if (!this.hasOwnProperty(key)) continue;
+      // This will trigger the proxy setter which updates the HTML
+      this[key] = value;
     }
   }
 

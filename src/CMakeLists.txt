@@ -29,17 +29,11 @@ target_link_libraries(${PROJECT_NAME}
     stats 
     shop
 )
-# Add dependency on templates
-add_dependencies(${PROJECT_NAME} templates)
-# Add dependency on static files
-add_dependencies(${PROJECT_NAME} static)
+# Add dependencies on templates and static targets
+add_dependencies(${PROJECT_NAME} templates static)
 
-# Define a preprocessor macro for the template directory
+# Define preprocessor macros for the directories
 target_compile_definitions(${PROJECT_NAME} PRIVATE 
     CROW_TEMPLATES_DIR="${CMAKE_CURRENT_BINARY_DIR}/src/templates/"
-)
-
-# Define a preprocessor macro for the static directory
-target_compile_definitions(${PROJECT_NAME} PRIVATE 
     CROW_STATIC_DIR="${CMAKE_CURRENT_BINARY_DIR}/src/static/"
 )

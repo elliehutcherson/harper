@@ -1,0 +1,28 @@
+<section class="left-section">
+  <!-- Banner with editable name fields and sprinkle counter -->
+  <div class="bakery-banner">
+    <div class="banner-content">
+      <div class="name-editor">
+        <div class="name-field">
+          <label for="bakery-name">Bakery:</label>
+          <input
+            type="text"
+            id="bakery-name"
+            value="{{bakery_name}}"
+            placeholder="Bakery Name"
+          />
+        </div>
+      </div>
+      <div class="sprinkle-counter">
+        <div class="sprinkle-icon">🧁</div>
+        <div id="sprinkle-count" class="sprinkle-count">{{sprinkles}}</div>
+        <div class="sprinkle-label">Sprinkles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image container -->
+  <div class="image-container">
+    <img src="/static/images/donut.png" />
+  </div>
+</section>

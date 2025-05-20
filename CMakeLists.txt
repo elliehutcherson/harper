@@ -30,27 +30,20 @@ set(STATIC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/static)
 file(GLOB TEMPLATE_FILES ${TEMPLATE_DIR}/*.html)
 file(GLOB STATIC_FILES ${STATIC_DIR}/*)
 
-# Copy templates to build directory during build
-add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/src/templates
+# Create custom targets for templates and static files
+add_custom_target(templates ALL
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/src/templates
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${TEMPLATE_DIR} ${CMAKE_CURRENT_BINARY_DIR}/src/templates
     DEPENDS ${TEMPLATE_FILES}
     COMMENT "Copying template files to build directory"
 )
 
-# Copy static files to build directory during build
-add_custom_command(
-    OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/src/static
+add_custom_target(static ALL
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_CURRENT_BINARY_DIR}/src/static
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${STATIC_DIR} ${CMAKE_CURRENT_BINARY_DIR}/src/static
     DEPENDS ${STATIC_FILES}
     COMMENT "Copying static files to build directory"
 )
-
-# Create a custom target for the templates
-add_custom_target(templates DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/src/templates)
-add_custom_target(static DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/src/static)
 
 # TESTONLY: When added, this target will only be built if both
 # BUILD_TESTING=ON and ABSL_BUILD_TESTING=ON.
