@@ -26,21 +26,6 @@
     background: #a1a1a1;
 }
 
-/* Item Bar Styling for Hover Dropdown */
-.item-bar {
-    width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-    margin-bottom: 1rem;
-    display: flex;
-    overflow: visible; /* Changed from hidden to allow dropdown to overflow */
-    position: relative;
-    cursor: pointer;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-    border-left: 4px solid #e9ecef; /* Add this line - creates the border */
-}
-
 /* Add some bakery-themed variation to items */
 .item-bar:nth-child(3n+1) {
     border-left-color: #e74c3c; /* Red */
@@ -59,48 +44,37 @@
     margin-bottom: 0.5rem;
 }
 
-/* Hover effects */
-.item-bar:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Icon container on the left */
-.item-icon-container {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+/* Item Bar Styling for Hover Dropdown */
+.item-bar {
+    width: 100%;
+    background-color: white;
     border-radius: 10px;
-    border: 2px solid #e9ecef;
-    margin-left: 0.5rem;
-    margin-top: 0.5rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1rem;
+    display: flex;
+    overflow: visible; /* Changed from hidden to allow dropdown to overflow */
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
 }
 
-.item-icon {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.1));
+.item-bar:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Content area taking up remaining space */
 .item-content {
     flex-grow: 1;
-    padding: 1rem;
+    padding: 1.2rem;
     display: flex;
     flex-direction: column;
     position: relative; /* For positioning the dropdown */
 }
 
-/* Header with name and count */
 .item-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .item-title {
@@ -108,20 +82,6 @@
     font-size: 1.4rem;
     color: #2c3e50;
     font-weight: 400;
-    line-height: 1.2;
-    flex: 1;
-}
-
-.item-count-display {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #2c3e50;
-    background-color: #f8f9fa;
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-    border: 1px solid #e9ecef;
-    min-width: 30px;
-    text-align: center;
 }
 
 .item-price {
@@ -160,11 +120,6 @@
     border-radius: 4px;
 }
 
-.item-bar:hover .item-progress {
-    opacity: 0;
-    transform: translateY(-10px);
-}
-
 .buy-button {
     position: absolute;
     left: 0;
@@ -181,40 +136,13 @@
     transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s;
 }
 
-/* Add some bakery-themed variation to items */
-.item-bar:nth-child(3n+1) {
-    border-left-color: #ff69b4; /* Hot Pink - like strawberry frosting */
-}
-.item-bar:nth-child(3n+2) {
-    border-left-color: #4fc9c9; /* Blue-green - like mint chip ice cream */
-}
-.item-bar:nth-child(3n+3) {
-    border-left-color: #ffd700; /* Golden Yellow - like lemon cake */
+.buy-button:hover {
+    background-color: #2ecc71;
 }
 
-/* Buy button colors matching border theme */
-.item-bar:nth-child(3n+1) .buy-button {
-    background-color: #ff69b4; /* Hot Pink - matches border */
-}
-
-.item-bar:nth-child(3n+1) .buy-button:hover {
-    background-color: #ff1493; /* Darker pink on hover */
-}
-
-.item-bar:nth-child(3n+2) .buy-button {
-    background-color: #7dd3c0; /* Blue-green - matches border */
-}
-
-.item-bar:nth-child(3n+2) .buy-button:hover {
-    background-color: #5fb8a3; /* Darker blue-green on hover */
-}
-
-.item-bar:nth-child(3n+3) .buy-button {
-    background-color: #ffd700; /* Golden Yellow - matches border */
-}
-
-.item-bar:nth-child(3n+3) .buy-button:hover {
-    background-color: #ffcd00; /* Darker yellow on hover */
+.item-bar:hover .item-progress {
+    opacity: 0;
+    transform: translateY(-10px);
 }
 
 .item-bar:hover .buy-button {
@@ -279,6 +207,29 @@
     font-weight: 500;
 }
 
+/* Count box styling */
+.item-count-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    flex-shrink: 0;
+    background-color: #f8f9fa;
+    border-left: 1px solid #f1f2f6;
+}
+
+.item-count {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Hover effects */
+.item-bar:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsive adjustments for the dropdown */
 @media (max-width: 768px) {
     .item-dropdown {
@@ -333,6 +284,22 @@
 
 .item-bar:hover .item-dropdown {
     animation: dropdown-fade-in 0.25s ease forwards;
+}
+
+/* Add a subtle indicator for hover effect */
+.item-bar::after {
+    content: "▼";
+    position: absolute;
+    right: 70px; /* Position before the count box */
+    bottom: 10px;
+    font-size: 8px;
+    color: #bdc3c7;
+    transition: transform 0.3s ease;
+}
+
+.item-bar:hover::after {
+    transform: rotate(180deg);
+    color: #3498db;
 }
 
 /* Buy button click animation */

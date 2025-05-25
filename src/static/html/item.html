@@ -1,0 +1,44 @@
+<div class="item-bar">
+  <div class="item-icon-container">
+    <img
+      src="/static/images/donut.png"
+      class="item-icon"
+    />
+  </div>
+
+  <div class="item-content">
+    <div class="item-header">
+      <div class="item-title">{{name}}</div>
+      <div class="item-count-display">{{count}}</div>
+    </div>
+
+    <div class="item-price-row">
+      <div class="item-price">${{price_formatted}}</div>
+    </div>
+
+    <!-- Progress bar that transforms into buy button -->
+    <div class="progress-buy-container">
+      <div class="item-progress">
+        <div class="progress-fill" style="width: 0%"></div>
+      </div>
+      <button class="buy-button">Buy for ${{price_formatted}}</button>
+    </div>
+
+    <!-- Dropdown content for hover details -->
+    <div class="item-dropdown">
+      <div class="dropdown-content">
+        <p class="item-description">{{description}}</p>
+        <div class="item-details">
+          <div class="item-detail-row">
+            <span class="detail-label">Sprinkles Per Cycle:</span>
+            <span class="detail-value">{{sprinkles_per_cycle}}</span>
+          </div>
+          <div class="item-detail-row">
+            <span class="detail-label">Cycles Per Minute:</span>
+            <span class="detail-value">{{cycles_per_minute}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

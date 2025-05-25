@@ -1,0 +1,182 @@
+[
+  {
+    "id": 0,
+    "name": "Rolling Pin",
+    "description": "Start with basic dough rolling for simple pastries",
+    "price": 25,
+    "sprinkles_per_cycle": 5,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 1,
+    "name": "Bake Stand",
+    "description": "Small neighborhood bakery with a few ovens",
+    "price": 258,
+    "sprinkles_per_cycle": 15,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 2,
+    "name": "Artisanal Kitchen",
+    "description": "Small-batch specialty shop",
+    "price": 2657,
+    "sprinkles_per_cycle": 45,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 3,
+    "name": "Patisserie",
+    "description": "Hire expert pastry chefs for multiple production lines",
+    "price": 27367,
+    "sprinkles_per_cycle": 135,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 4,
+    "name": "Pastry Academy",
+    "description": "Train master bakers to improve quality and speed",
+    "price": 281880,
+    "sprinkles_per_cycle": 405,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 5,
+    "name": "Factory",
+    "description": "Industrial-scale production with conveyor belts and automated mixers",
+    "price": 2903364,
+    "sprinkles_per_cycle": 1215,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 6,
+    "name": "Mega Bakery Complex",
+    "description": "Industrial-scale production of all varieties",
+    "price": 29904649,
+    "sprinkles_per_cycle": 3645,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 7,
+    "name": "Pastry Skyscraper",
+    "description": "Vertical integration from grain silos to packaging",
+    "price": 308017885,
+    "sprinkles_per_cycle": 10935,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 8,
+    "name": "Sprinkle Storm Generator",
+    "description": "Weather control station that creates localized sprinkle precipitation",
+    "price": 3172584216,
+    "sprinkles_per_cycle": 32805,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 9,
+    "name": "Sprinkle Particle Accelerator",
+    "description": "Collides sugar molecules at near light-speed to create exotic sprinkles",
+    "price": 32677617425,
+    "sprinkles_per_cycle": 98415,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 10,
+    "name": "Stratospheric Ovens",
+    "description": "Harness the sun's direct heat for perfect baking",
+    "price": 336579459478,
+    "sprinkles_per_cycle": 295245,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 11,
+    "name": "Molecular Pastry Assemblers",
+    "description": "Build pastries atom by atom",
+    "price": 3466768432623,
+    "sprinkles_per_cycle": 885735,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 12,
+    "name": "Flavor Dimension Gateway",
+    "description": "Import exotic tastes from alternate realities",
+    "price": 35707314856016,
+    "sprinkles_per_cycle": 2657205,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 13,
+    "name": "Interdimensional Patisserie",
+    "description": "Harvests ingredients from parallel universes where flour grows on trees",
+    "price": 367785343016965,
+    "sprinkles_per_cycle": 7971615,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 14,
+    "name": "Dough Terraforming",
+    "description": "Convert entire planets into giant pastry environments",
+    "price": 3788189033074740,
+    "sprinkles_per_cycle": 23914845,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 15,
+    "name": "Yeast Sentience",
+    "description": "Self-evolving bread organisms that bake themselves",
+    "price": 39018347040669820,
+    "sprinkles_per_cycle": 71744535,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 16,
+    "name": "Interdimensional Patisserie",
+    "description": "Harvests ingredients from parallel universes where flour grows on trees",
+    "price": 401888974518899150,
+    "sprinkles_per_cycle": 215233605,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  },
+  {
+    "id": 17,
+    "name": "Reality Baking Engine",
+    "description": "Rewrites the laws of physics to make everything taste like pastries",
+    "price": 4139456437244661250,
+    "sprinkles_per_cycle": 645700815,
+    "progress_per_cycle": 0.01,
+    "count": 0,
+    "price_multiplier": 1.2
+  }
+]

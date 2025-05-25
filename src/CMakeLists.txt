@@ -1,16 +1,7 @@
 add_library(utils utils.cc)
 
-add_library(player INTERFACE 
-    player.h
-)
-
 add_library(stats INTERFACE 
     stats.h
-)
-
-add_library(shop shop.cc)
-target_link_libraries(shop 
-    Crow::Crow
 )
 
 add_executable(${PROJECT_NAME} main.cc)
@@ -25,9 +16,7 @@ target_link_libraries(${PROJECT_NAME}
     absl::str_format
     Crow::Crow
     utils
-    player
     stats 
-    shop
 )
 # Add dependencies on templates and static targets
 add_dependencies(${PROJECT_NAME} templates static)

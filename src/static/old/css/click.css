@@ -1,0 +1,180 @@
+/* Left section styles with banner */
+.left-section {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column; /* Stack banner above image */
+    background-color: #f8f9fa;
+    padding: 2rem;
+    height: 100%; /* Full height */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.bakery-banner {
+    background: linear-gradient(135deg, #ffe8cc 0%, #ffcad4 100%);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px dashed #f39c12;
+    flex-shrink: 0; /* Don't allow banner to shrink */
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column; /* Stack name editor above sprinkle counter */
+    gap: 1rem;
+}
+
+.name-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.name-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.name-field label {
+    font-family: 'Pacifico', cursive;
+    color: #e74c3c;
+    font-size: 1.1rem;
+    min-width: 70px;
+}
+
+.name-field input {
+    flex: 1;
+    padding: 0.5rem 0.8rem;
+    border: 2px solid #f8c291;
+    border-radius: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+}
+
+.name-field input:focus {
+    outline: none;
+    border-color: #e74c3c;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.save-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.save-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+.sprinkle-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.sprinkle-icon {
+    font-size: 1.8rem;
+}
+
+.sprinkle-count {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.sprinkle-label {
+    font-family: 'Pacifico', cursive;
+    color: #e67e22;
+    font-size: 0.9rem;
+}
+
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-15px) scale(1.05);
+    }
+    50% {
+        transform: translateY(5px) scale(0.95);
+    }
+    75% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+/* Class to apply the bounce animation */
+.image-bounce {
+    animation: bounce 0.5s ease;
+}
+
+.image-container {
+    flex-grow: 1; /* Allow image container to fill remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make the image clickable with a cursor pointer */
+.image-container img {
+    max-width: 100%;
+    max-height: 75%;
+    object-fit: contain;
+    cursor: pointer; /* Change cursor to show it's clickable */
+    transition: transform 0.2s ease; /* Smooth transform for hover effect */
+}
+
+/* Optional: Add a subtle hover effect */
+.image-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+    .banner-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .name-editor {
+        flex: 1;
+    }
+    
+    .sprinkle-counter {
+        flex: 0 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-content {
+        flex-direction: column;
+    }
+    
+    .sprinkle-counter {
+        width: 100%;
+        justify-content: center;
+    }
+}

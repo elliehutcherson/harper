@@ -15,28 +15,3 @@ const env = new Environment({
 
 // For debugging or manual testing
 window.env = env;
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Get the donut image
-    const donut_image = document.querySelector('.image-container img');
-
-    if (!donut_image) {
-        console.error('Donut image not found');
-        return;
-    }
-    
-    // Add click event listener
-    donut_image.addEventListener('click', function () {
-        // Remove the animation class if it exists
-        this.classList.remove('image-bounce');
-
-        // Force a reflow to restart the animation
-        void this.offsetWidth;
-
-        // Add the animation class
-        this.classList.add('image-bounce');
-
-        // Optional: Increment sprinkle count
-        env.addSprinkles(1);
-    });
-});

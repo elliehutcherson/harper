@@ -4,8 +4,6 @@
 #include "crow/mustache.h" 
 
 #include "utils.h"
-#include "player.h"
-#include "shop.h"
 #include "stats.h"
 
 int main() {
@@ -27,9 +25,6 @@ int main() {
 
     // Example statistics data
     ctx["stats"] = harper::Stats().ToJson();
-
-    // Shop list
-    ctx["items"] = harper::GetShopJson();
 
     // Render the template with the context
     return crow::mustache::load("index.html").render(ctx);
