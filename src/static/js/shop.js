@@ -20,7 +20,7 @@ export class Shop {
       throw new Error('Expected a function for onBuy');
     }
     // Store the buy callback
-    this.onBuy = config.onBuy;
+    this.onBuyEnvironment = config.onBuy;
 
     if (typeof config.onCycle !== 'function') {
       throw new Error('Expected a function for onCycle');
@@ -29,7 +29,9 @@ export class Shop {
     this.onCycle = config.onCycle;
 
     this.isMobile = config.isMobile || false;
+    this.totalSpm = BigInt(0);
     this.items_loaded = false;
+    this.totalSpmCached = false;
 
     // Initialize items map
     this.items = new Map();
@@ -81,9 +83,10 @@ export class Shop {
     const new_item = new Item({
       properties: item_properties,
       isMobile: this.isMobile,
-      onBuy: this.onBuy,
-      onCycle: this.onCycle,
-      element: this.container.lastElementChild
+      onBuy: this.onBuy.bind(this),
+      onCycle: this.onCycle.bind(this),
+      getTotalSprinklesPerMinute: this.getTotalSprinklesPerMinute.bind(this),
+      element: this.container.lastElementChild,
     });
 
     // Store the proxied item
@@ -132,6 +135,11 @@ export class Shop {
     document.head.appendChild(style);
   }
 
+  onBuy(price) {
+    this.totalSpmCached = false; // Invalidate cache
+    return this.onBuyEnvironment(price);
+  }
+
   /**
    * Updates all items in the shop
    * @param {number} cycles - The number of cycles to update
@@ -143,6 +151,17 @@ export class Shop {
   }
 
   getTotalSprinklesPerMinute() {
-    return 0;
+    if (this.totalSpmCached) {
+      return this.totalSpm;
+    }
+
+    this.totalSpm = BigInt(0);
+    for (const item of this.items.values()) {
+      this.totalSpm += item.sprinklesPerMinute();
+    }
+
+    console.log('Total sprinkles per minute:', this.totalSpm);
+    this.totalSpmCached = true;
+    return this.totalSpm;
   }
 }

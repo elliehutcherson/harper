@@ -1,4 +1,6 @@
-/* Item Bar Styling with Icon Layout */
+/* item-bar.css - Item bars for shop equipment */
+
+/* Item Bar Styling for Hover Dropdown */
 .item-bar {
     width: 100%;
     background-color: white;
@@ -6,22 +8,65 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
     margin-bottom: 1rem;
     display: flex;
-    overflow: visible;
+    overflow: visible; /* Changed from hidden to allow dropdown to overflow */
     position: relative;
     cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.2s ease;
+    border-left: 4px solid #e9ecef; /* Add this line - creates the border */
+    z-index: 5; /* Higher than containers, lower than dropdown */
 }
 
+/* Add some bakery-themed variation to items */
+.item-bar:nth-child(3n+1) {
+    border-left-color: #ff69b4; /* Hot Pink - like strawberry frosting */
+}
+.item-bar:nth-child(3n+2) {
+    border-left-color: #4fc9c9; /* Blue-green - like mint chip ice cream */
+}
+.item-bar:nth-child(3n+3) {
+    border-left-color: #ffd700; /* Golden Yellow - like lemon cake */
+}
+
+/* Buy button colors matching border theme */
+.item-bar:nth-child(3n+1) .buy-button {
+    background-color: #ff69b4; /* Hot Pink - matches border */
+}
+
+.item-bar:nth-child(3n+1) .buy-button:hover {
+    background-color: #ff1493; /* Darker pink on hover */
+}
+
+.item-bar:nth-child(3n+2) .buy-button {
+    background-color: #7dd3c0; /* Blue-green - matches border */
+}
+
+.item-bar:nth-child(3n+2) .buy-button:hover {
+    background-color: #5fb8a3; /* Darker blue-green on hover */
+}
+
+.item-bar:nth-child(3n+3) .buy-button {
+    background-color: #ffd700; /* Golden Yellow - matches border */
+}
+
+.item-bar:nth-child(3n+3) .buy-button:hover {
+    background-color: #ffcd00; /* Darker yellow on hover */
+}
+
+/* Make sure the last item has margin-bottom so it's not cut off when scrolling */
+.item-bar:last-child {
+    margin-bottom: 0.5rem;
+}
+
+/* Hover effects */
 .item-bar:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Icon container on the left */
 .item-icon-container {
     flex-shrink: 0;
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,24 +87,24 @@
 /* Content area taking up remaining space */
 .item-content {
     flex-grow: 1;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    min-height: 60px;
+    position: relative; /* For positioning the dropdown */
+    overflow: visible; /* Allow dropdown to overflow */
 }
 
 /* Header with name and count */
 .item-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 0.5rem;
 }
 
 .item-title {
     font-family: 'Pacifico', cursive;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #2c3e50;
     font-weight: 400;
     line-height: 1.2;
@@ -78,26 +123,25 @@
     text-align: center;
 }
 
-/* Price row - gives price its own dedicated space */
 .item-price-row {
     margin-bottom: 0.5rem;
 }
 
 .item-price {
-    display: inline-block;
     font-weight: 600;
     color: #e74c3c;
     background-color: #fff8e6;
-    padding: 0.4rem 1rem;
+    padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 1rem;
     border: 1px dashed #f39c12;
 }
 
-/* Progress/Buy button container */
+/* Progress bar that transforms into buy button */
 .progress-buy-container {
     position: relative;
-    height: 32px;
+    height: 36px; /* Accommodate both progress bar and button */
+    margin-top: auto; /* Push to bottom of content */
     display: flex;
     align-items: center;
 }
@@ -131,7 +175,7 @@
     font-weight: 600;
     cursor: pointer;
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s;
 }
 
@@ -141,7 +185,7 @@
 
 .item-bar:hover .item-progress {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 }
 
 .item-bar:hover .buy-button {
@@ -149,110 +193,13 @@
     transform: translateY(0);
 }
 
-/* Dropdown styling */
-.item-dropdown {
-    position: absolute;
-    top: 100%;
-    left: -1rem;
-    right: -1rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 10;
-    padding-top: 0.5rem;
+/* Buy button click animation */
+.buy-button:active {
+    animation: button-pulse 0.2s ease;
 }
 
-.dropdown-content {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-    padding: 1rem;
-    border: 1px solid #f0f0f0;
-}
-
-.item-bar:hover .item-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.item-description {
-    color: #27ae60;
-    margin-bottom: 0.8rem;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-.item-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.item-detail-row {
-    display: flex;
-    justify-content: space-between;
-    color: #7f8c8d;
-}
-
-.detail-label {
-    color: #2980b9;
-}
-
-.detail-value {
-    font-weight: 500;
-}
-
-/* Animation for count updates */
-@keyframes count-pulse {
-    0% {
-        transform: scale(1);
-        background-color: #f8f9fa;
-    }
-    50% {
-        transform: scale(1.1);
-        background-color: #d4edda;
-        color: #155724;
-    }
-    100% {
-        transform: scale(1);
-        background-color: #f8f9fa;
-    }
-}
-
-.count-increment {
-    animation: count-pulse 0.5s ease;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .item-bar {
-        padding: 0.8rem;
-        gap: 0.8rem;
-    }
-    
-    .item-icon-container {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .item-icon {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .item-title {
-        font-size: 1.1rem;
-    }
-    
-    .item-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .item-count-display {
-        margin-top: 0.3rem;
-    }
+/* "Not enough" animation */
+.buy-button.error {
+    animation: button-shake 0.4s ease;
+    background-color: #e74c3c !important;
 }

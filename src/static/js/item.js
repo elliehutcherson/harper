@@ -1,4 +1,4 @@
-import { multiplyDecimalBigint, formatNumber } from "./utils.js";
+import { multiplyDecimalBigint, formatNumber, bigIntPercent } from "./utils.js";
 
 export class Item {
   /**
@@ -7,12 +7,13 @@ export class Item {
    * @property {string} description - The item's description
    * @property {BigInt} price - The item's price in cents
    * @property {BigInt} sprinkles_per_cycle - Sprinkles produced per cycle
-   * @property {BigInt} progress_per_cycle - Progress completed per cycle 
+   * @property {BigInt} progress_per_segment - Progress completed per cycle 
    * @property {BigInt} count - The number of items owned
    * @property {number} price_multiplier - Multiplier for the price after each purchase
    * @property {boolean} isMobile - Flag for mobile devices
    * @property {Function} onBuy - Callback function for buy action, must return a boolean
    * @property {Function} onCycle - Callback function invoked on each completed cycle
+   * @property {Function} getTotalSprinklesPerMinute - Callback function to get total sprinkles per minute
    * @property {HTMLElement} itemBarElement - Element to catch hover events
    * @property {HTMLElement} titleElement - Element to display the title
    * @property {HTMLElement} priceElement - Element to display the price
@@ -42,19 +43,26 @@ export class Item {
     // Store the cycle callback
     this.onCycle = config.onCycle;
 
+    if (typeof config.getTotalSprinklesPerMinute !== 'function') {
+      throw new Error('Expected a function for getTotalSprinklesPerMinute');
+    }
+    // Store the total sprinkles per minute callback
+    this.getTotalSprinklesPerMinute = config.getTotalSprinklesPerMinute;
+
     // Initialize with default values
     this.id = config.properties.id || BigInt(0);
     this.name = config.properties.name || '';
     this.description = config.properties.description || '';
     this.price = BigInt(config.properties.price) || BigInt(0);
     this.sprinkles_per_cycle = BigInt(config.properties.sprinkles_per_cycle) || BigInt(0);
-    this.progress_per_cycle = config.properties.progress_per_cycle || 0.0;
+    this.progress_per_segment = config.properties.progress_per_segment || 0.0;
     this.count = BigInt(config.properties.count) || BigInt(0);
     this.price_multiplier = config.properties.price_multiplier || 1.1;
     this.progress = 0;
     this.sprinkles_created = BigInt(0);
     this.current_price = this.price;
     this.previous_prices = [this.price];
+    this.cycles_per_minute = 0;
 
     this.isMobile = config.isMobile || false;
     this.titleElement = this.itemBarElement.querySelector('.item-title');
@@ -75,7 +83,7 @@ export class Item {
 
         // Update the HTML if it's one of our tracked properties
         if (['name', 'description', 'price', 'sprinkles_per_cycle',
-          'progress_per_cycle', 'count'].includes(prop)) {
+          'progress_per_segment', 'count'].includes(prop)) {
           target.updateHTML(prop, value);
         }
 
@@ -137,7 +145,8 @@ export class Item {
   updateHTML(property, value) {
     if (property == 'name' && this.titleElement) {
       this.titleElement.textContent = value;
-    } else if (property == 'description' && this.descriptionElement) {
+    } 
+    else if (property == 'description' && this.descriptionElement) {
       this.descriptionElement.textContent = value;
     }
     else if (property == 'price' && this.priceElement) {
@@ -146,10 +155,19 @@ export class Item {
       this.priceElement.textContent = `$${formatNumber(value)}`;
     }
     else if (property == 'sprinkles_per_cycle') {
-      this.updateDetailValue('Sprinkles Per Cycle', value);
+      this.updateDetailValue('sprinkles-per-cycle', value);
     }
-    else if (property == 'progress_per_cycle') {
-      this.updateDetailValue('Progress per cycle', value);
+    else if (property == 'cycles_per_minute') {
+      this.updateDetailValue('cycles-per-minute', value);
+    }
+    else if (property == 'sprinkles_created') {
+      this.updateDetailValue('total-sprinkles-created', formatNumber(value));
+    }
+    else if (property == 'percent_spm') {
+      this.updateDetailValue('percent-spm', value);
+    } 
+    else if (property == 'progress_per_segment') {
+      this.updateDetailValue('progress-per-segment', value);
     }
     else if (property == 'count' && this.countElement) {
       this.countElement.textContent = value.toString();
@@ -169,20 +187,17 @@ export class Item {
 
   /**
    * Helper method to update a detail row value
-   * @param {string} labelText - The label text to search for
+   * @param {string} className - The label text to search for
    * @param {any} value - The new value
    */
-  updateDetailValue(labelText, value) {
+  updateDetailValue(className, value) {
     const detailRows = this.itemBarElement.querySelectorAll('.item-detail-row');
     detailRows.forEach(row => {
-      const label = row.querySelector('.detail-label');
+      const element = row.querySelector('.detail-value');
       // Check if the label text includes the specified text
-      if (!label || label.textContent.includes(labelText)) return;
-      // Find the value element in the same row
-      const valueElement = row.querySelector('.detail-value');
-      if (!valueElement) return;
-
-      valueElement.textContent = value.toString();
+      if (!element || !element.classList.contains(className)) return;
+      console.log(`Updating detail row for label: ${className}, value: ${value}, classList: ${element.classList}`);
+      element.textContent = value.toString();
     });
   }
 
@@ -198,7 +213,7 @@ export class Item {
     if (this.count <= 0) return;
     if (this.cycles <= 0) return;
 
-    let full_progress = this.progress + (this.progress_per_cycle * cycles);
+    let full_progress = this.progress + (this.progress_per_segment * cycles);
     console.log(`Full progress: ${full_progress}`);
     let full_cycles = Math.floor(full_progress);
     this.progress = full_progress % 1;
@@ -210,6 +225,7 @@ export class Item {
     // Add sprinkles to the total
     this.onCycle(sprinkles);
     this.sprinkles_created += sprinkles;
+    this.updateHTML('sprinkles_created', this.sprinkles_created);
   }
 
   /**
@@ -227,7 +243,7 @@ export class Item {
       // Reset button after delay
       setTimeout(() => {
         this.buyElement.textContent = `Buy for $${formatNumber(this.current_price)}`;
-        this.buyElement.style.backgroundColor = "#27ae60";
+        this.buyElement.style.removeProperty('background-color');
       }, 1500);
 
       console.log(`Not enough sprinkles to buy ${this.name}`);
@@ -241,16 +257,45 @@ export class Item {
 
     // Visual feedback for purchase
     this.buyElement.textContent = "Bought!";
-    this.buyElement.style.backgroundColor = "#2ecc71";
 
     // Reset button after delay
     setTimeout(() => {
-      this.buyElement.textContent = `Buy for ${this.current_price.toString()}`;
+      this.buyElement.textContent = `Buy for $${formatNumber(this.current_price.toString())}`;
     }, 1000);
 
     this.updateHTML('price', this.current_price);
     this.updateHTML('count', this.count);
+    this.updateHTML('sprinkles_created', this.sprinkles_created);
+    this.updateHTML('percent_spm', this.percentTotalSprinklesPerMinute());
+    this.updateHTML('pgress_per_segment', this.progress_per_segment);
+    this.updateHTML('sprinkles_per_cycle', this.sprinkles_per_cycle);
 
     console.log(`Purchased ${this.name} for ${this.current_price} sprinkles. New count: ${this.count}`);
+  }
+
+  /**
+   * Return the number of sprinkles produced per minute
+   * @returns {BigInt} - The number of sprinkles produced per minute
+   */
+  sprinklesPerMinute(segments_per_minute = 600) {
+    if (this.sprinkles_per_cycle <= 0) return 0;
+    if (this.progress_per_segment <= 0) return 0;
+    let cycles_per_minute = segments_per_minute * this.progress_per_segment;
+    // Calculate sprinkles per minute
+    return this.sprinkles_per_cycle * this.count * BigInt(cycles_per_minute);
+  }
+
+  /**
+   * Return a percentage of the total sprinkles produced per minute
+   * @returns {number} - The percentage of total sprinkles produced per minute
+   */
+  percentTotalSprinklesPerMinute() {
+    if (this.sprinkles_per_cycle <= 0) return 0;
+    if (this.progress_per_segment <= 0) return 0;
+    if (this.count <= 0) return 0;
+
+    let spm = this.sprinklesPerMinute();
+    let total_spm = this.getTotalSprinklesPerMinute();
+    return bigIntPercent(spm, total_spm);
   }
 }

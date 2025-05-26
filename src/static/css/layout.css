@@ -1,0 +1,211 @@
+/* layout.css - Layout structure for the game's main sections */
+
+/* Left section styles with banner */
+.left-section {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column; /* Stack banner above image */
+    background-color: #f8f9fa;
+    padding: 2rem;
+    height: 100%; /* Full height */
+    /* FIXED: Changed from overflow: hidden to visible */
+    overflow: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.bakery-banner {
+    background: linear-gradient(135deg, #ffe8cc 0%, #ffcad4 100%);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px dashed #f39c12;
+    flex-shrink: 0; /* Don't allow banner to shrink */
+}
+
+.banner-content {
+    display: flex;
+    flex-direction: column; /* Stack name editor above sprinkle counter */
+    gap: 1rem;
+}
+
+.image-container {
+    flex-grow: 1; /* Allow image container to fill remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make the image clickable with a cursor pointer */
+.image-container img {
+    max-width: 100%;
+    max-height: 75%;
+    object-fit: contain;
+    cursor: pointer; /* Change cursor to show it's clickable */
+    transition: transform 0.2s ease; /* Smooth transform for hover effect */
+}
+
+/* Optional: Add a subtle hover effect */
+.image-container img:hover {
+    transform: scale(1.02);
+}
+
+/* Middle section styles */
+.middle-section {
+    flex: 1.8;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    height: 100%; /* Full height */
+    /* FIXED: Changed from overflow: hidden to visible */
+    overflow: visible;
+    position: relative;
+    z-index: 1; /* Lower z-index than right section */
+}
+
+.title-container {
+    margin-bottom: 1.5rem;
+}
+
+.update-container {
+    background-color: #f0f8ff;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    border-left: 4px solid #3498db;
+}
+
+.update-message {
+    font-weight: 500;
+}
+
+.update-time {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+}
+
+.stats-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling for stats */
+    padding-right: 0.5rem; /* Space for scrollbar */
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.stat-item:hover {
+    background-color: #f0f0f0;
+}
+
+.stat-label {
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: 600;
+    color: #2980b9;
+}
+
+/* Right section styles - with proper scrolling */
+.right-section {
+    flex: 1.5;
+    padding: 1.5rem 1.5rem 0 1.5rem; /* Remove bottom padding */
+    background-color: #fafafa;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* FIXED: Changed from overflow-y: hidden to visible */
+    overflow: visible;
+    position: relative;
+    z-index: 2; /* Higher than middle section to ensure dropdowns work */
+}
+
+.right-section h2 {
+    flex-shrink: 0; /* Prevent title from shrinking */
+    font-family: 'Pacifico', cursive;
+    color: #d35400;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dotted #e0e0e0;
+    padding-bottom: 0.8rem;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Item List Styling */
+.items-list {
+    flex-grow: 1; /* Fill available space */
+    overflow-y: auto; /* Enable vertical scrolling for items */
+    padding-right: 0.5rem; /* Space for scrollbar */
+    padding-bottom: 1.5rem; /* Add padding at bottom for scrolling space */
+    margin-right: -0.5rem; /* Compensate for scrollbar space */
+    overflow-x: visible; /* CRITICAL: Allow horizontal overflow for dropdown */
+    padding-left: 320px;
+    margin-left: -320px;
+    position: relative; /* Add positioning context */
+}
+
+/* Custom scrollbar for items list */
+.items-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.items-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.items-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.items-list::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Responsive adjustments for layout */
+@media (max-width: 1200px) {
+    .banner-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .name-editor {
+        flex: 1;
+    }
+    
+    .sprinkle-counter {
+        flex: 0 0 auto;
+    }
+    
+    .stats-container, .items-list {
+        max-height: 50vh;
+    }
+    
+    .image-container img {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-content {
+        flex-direction: column;
+    }
+    
+    .sprinkle-counter {
+        width: 100%;
+        justify-content: center;
+    }
+}

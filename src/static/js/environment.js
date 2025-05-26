@@ -113,7 +113,6 @@ export class Environment {
       if (currentTime - this.lastUpdateTime < this.updateInterval) return;
       
       let cycles = Math.floor((currentTime - this.lastUpdateTime) / this.updateInterval);
-      console.log('Update loop cycles:', cycles, 'Current time:', currentTime, 'Last update time:', this.lastUpdateTime);
       // Update the game state
       this.update(cycles);
       this.lastUpdateTime = currentTime;
@@ -175,7 +174,7 @@ export class Environment {
 
     // Update sprinkles per minute
     if (this.statsSprinklesPerMinuteElement) {
-      const spm = this.getTotalSprinklesPerMinute();
+      const spm = this.shop.getTotalSprinklesPerMinute();
       this.statsSprinklesPerMinuteElement.textContent = formatDecimal(spm);
     }
   }
@@ -193,7 +192,7 @@ export class Environment {
 
   /**
    * Buys an item from the shop
-   * @param { } price 
+   * @param {BigInt} price 
    * @returns {boolean} - True if the purchase was successful, false otherwise
    */
   onBuy(price) {
@@ -245,9 +244,5 @@ export class Environment {
     this.currentSprinkles += sprinkles;
     this.totalSprinkles += sprinkles;
     this.updateUI();
-  }
-
-  getTotalSprinklesPerMinute() {
-    return 0;
   }
 }

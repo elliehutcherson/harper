@@ -1,0 +1,126 @@
+/* base.css - Core foundation styles and resets */
+
+/* Import bakery-style fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600&display=swap');
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+    height: 100vh;
+    /* FIXED: Changed from overflow: hidden to visible */
+    overflow: visible;
+}
+
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* FIXED: Changed from overflow: hidden to visible */
+    overflow: visible; 
+    position: relative; /* Added positioning context */
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #34495e;
+    border-bottom: 1px solid #ecf0f1;
+    padding-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-15px) scale(1.05);
+    }
+    50% {
+        transform: translateY(5px) scale(0.95);
+    }
+    75% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+@keyframes button-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes button-shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-3px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    75% {
+        transform: translateX(-3px);
+    }
+}
+
+@keyframes dropdown-slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Class to apply the bounce animation */
+.image-bounce {
+    animation: bounce 0.5s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        overflow-y: auto;
+    }
+    
+    .left-section, .middle-section, .right-section {
+        height: auto;
+        min-height: 50vh;
+    }
+    
+    .middle-section, .right-section {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid #e0e0e0;
+    }
+}

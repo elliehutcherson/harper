@@ -1,0 +1,107 @@
+/* dropdown.css - Specialized styles for the item dropdowns */
+
+/* FIXED: Dropdown styling with improved z-index and positioning */
+.item-dropdown {
+    position: absolute;
+    top: 0; /* Align with the top of the item bar */
+    left: -320px; /* Position to the left, adjust width as needed */
+    width: 300px; /* Fixed width for the dropdown */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(50px); /* Start position further to the right */
+    transition: all 0.3s ease;
+    z-index: 100; /* CRITICAL: Very high z-index to appear on top of everything */
+    height: 100%; /* Match the height of the item bar */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    pointer-events: none; /* Initially no pointer events */
+}
+
+.dropdown-content {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    border: 1px solid #f0f0f0;
+    width: 100%;
+    pointer-events: auto; /* Re-enable pointer events for content */
+}
+
+/* Show dropdown on hover - slides in from right */
+.item-bar:hover .item-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0); /* Slide to final position */
+    animation: dropdown-slide-left 0.25s ease forwards;
+    pointer-events: auto; /* Enable pointer events when visible */
+}
+
+.item-description {
+    color: #27ae60;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 0.7rem;
+}
+
+.item-detail-row {
+    display: flex;
+    justify-content: space-between;
+    color: #7f8c8d;
+}
+
+.detail-label {
+    color: #2980b9;
+}
+
+.detail-value {
+    font-weight: 500;
+}
+
+/* Responsive adjustments for the dropdown */
+@media (max-width: 768px) {
+    .item-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        height: auto;
+        max-height: 60%;
+        overflow-y: auto;
+        background-color: white;
+        box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 0;
+        transform: translate(0, -50%) translateX(100%); /* Start from right on mobile */
+        display: block; /* Reset flex for mobile */
+    }
+    
+    .item-bar:hover .item-dropdown {
+        transform: translate(0, -50%) translateX(0); /* Slide in from right */
+    }
+    
+    .dropdown-content {
+        border-radius: 10px;
+        box-shadow: none;
+        border: none;
+    }
+    
+    /* Add a close button for mobile */
+    .dropdown-content::after {
+        content: "×";
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #e74c3c;
+        cursor: pointer;
+    }
+}

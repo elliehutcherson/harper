@@ -1,0 +1,86 @@
+/* left-section.css - Banner, name editor and sprinkle counter styles */
+
+.name-editor {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.name-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.name-field label {
+    font-family: 'Pacifico', cursive;
+    color: #e74c3c;
+    font-size: 1.1rem;
+    min-width: 70px;
+}
+
+.name-field input {
+    flex: 1;
+    padding: 0.5rem 0.8rem;
+    border: 2px solid #f8c291;
+    border-radius: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.2s;
+}
+
+.name-field input:focus {
+    outline: none;
+    border-color: #e74c3c;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.save-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.save-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+.sprinkle-counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.sprinkle-icon {
+    font-size: 1.8rem;
+}
+
+.sprinkle-count {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #e74c3c;
+}
+
+.sprinkle-label {
+    font-family: 'Pacifico', cursive;
+    color: #e67e22;
+    font-size: 0.9rem;
+}

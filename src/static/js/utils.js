@@ -114,3 +114,13 @@ export function roundDownDateToTenths(timestamp) {
   const roundedTimestamp = Math.floor(timestamp / 100) * 100;
   return new Date(roundedTimestamp).getTime();
 }
+
+export function bigIntPercent(numerator, denominator, precision = 2) {
+  if (denominator === 0n) {
+    return "Division by zero is not allowed.";
+  }
+
+  const scaledNumerator = numerator * (10n ** BigInt(precision + 2));
+  const percentage = scaledNumerator / denominator;
+  return Number(percentage) / 100;
+}
