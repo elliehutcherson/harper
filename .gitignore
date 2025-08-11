@@ -46,8 +46,5 @@ Makefile
 *.idb
 *.pdb
 
-# CSV files
-*.csv
-
 # Dependencies that might be auto-generated
 /deps/
