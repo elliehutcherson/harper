@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bankruptcy Filings Dashboard</title>
+    <link rel="stylesheet" href="/static/css/finance/finance.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📊 Bankruptcy Filings Dashboard</h1>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="dataType">Data Type:</label>
+          <select id="dataType">
+            <option value="filed">Filed Cases</option>
+            <option value="pending">Pending Cases</option>
+            <option value="terminated">Terminated Cases</option>
+            <option value="filed_yoy">Filed Cases YoY</option>
+            <option value="pending_yoy">Pending Cases YoY</option>
+            <option value="terminated_yoy">Terminated Cases YoY</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="viewMode">View Mode:</label>
+          <select id="viewMode">
+            <option value="all">All Districts</option>
+            <option value="single">Single District</option>
+            <option value="top10">Top 10 Districts</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="districtSelect">Select District:</label>
+          <select id="districtSelect" style="display: none">
+            <option value="">Choose a district...</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="searchDistrict">Search District:</label>
+          <input
+            type="text"
+            id="searchDistrict"
+            placeholder="Type to filter..."
+          />
+        </div>
+      </div>
+
+      <div id="loadingMessage" class="loading">
+        Loading bankruptcy filing data...
+      </div>
+      <div id="errorMessage" class="error" style="display: none"></div>
+
+      <div class="chart-container" style="display: none">
+        <canvas id="bankruptcyChart"></canvas>
+      </div>
+
+      <div id="stats" class="stats" style="display: none"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script type="module" src="/static/js/finance/finance.js"></script>
+  </body>
+</html>

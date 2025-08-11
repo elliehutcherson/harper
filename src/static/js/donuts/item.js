@@ -62,7 +62,6 @@ export class Item {
     this.sprinkles_created = BigInt(0);
     this.current_price = this.price;
     this.previous_prices = [this.price];
-    this.cycles_per_minute = 0;
 
     this.isMobile = config.isMobile || false;
     this.titleElement = this.itemBarElement.querySelector('.item-title');
@@ -214,7 +213,6 @@ export class Item {
     if (this.cycles <= 0) return;
 
     let full_progress = this.progress + (this.progress_per_segment * cycles);
-    console.log(`Full progress: ${full_progress}`);
     let full_cycles = Math.floor(full_progress);
     this.progress = full_progress % 1;
 
@@ -225,6 +223,7 @@ export class Item {
     // Add sprinkles to the total
     this.onCycle(sprinkles);
     this.sprinkles_created += sprinkles;
+    console.log(`Item ${this.name} produced ${sprinkles} sprinkles over ${full_cycles} cycles. Total sprinkles created: ${this.sprinkles_created}`);
     this.updateHTML('sprinkles_created', this.sprinkles_created);
   }
 
@@ -267,8 +266,9 @@ export class Item {
     this.updateHTML('count', this.count);
     this.updateHTML('sprinkles_created', this.sprinkles_created);
     this.updateHTML('percent_spm', this.percentTotalSprinklesPerMinute());
-    this.updateHTML('pgress_per_segment', this.progress_per_segment);
+    this.updateHTML('progress_per_segment', this.progress_per_segment);
     this.updateHTML('sprinkles_per_cycle', this.sprinkles_per_cycle);
+    this.updateHTML('cycles_per_minute', this.cyclesPerMinute());
 
     console.log(`Purchased ${this.name} for ${this.current_price} sprinkles. New count: ${this.count}`);
   }
@@ -297,5 +297,11 @@ export class Item {
     let spm = this.sprinklesPerMinute();
     let total_spm = this.getTotalSprinklesPerMinute();
     return bigIntPercent(spm, total_spm);
+  }
+
+  cyclesPerMinute(segments_per_minute = 600) {
+    if (this.progress_per_segment <= 0) return 0;
+    // Calculate cycles per minute
+    return segments_per_minute * this.progress_per_segment;
   }
 }

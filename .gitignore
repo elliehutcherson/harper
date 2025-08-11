@@ -1,6 +1,8 @@
 # Build directories
 build/
 **/build/
+notes/
+**/notes/
 
 # CMake generated files
 CMakeCache.txt
@@ -43,6 +45,9 @@ Makefile
 *.su
 *.idb
 *.pdb
+
+# CSV files
+*.csv
 
 # Dependencies that might be auto-generated
 /deps/

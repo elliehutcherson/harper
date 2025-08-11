@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Construction Timeline</title>
+    <link rel="stylesheet" href="/static/css/madison/madison.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+</head>
+<body>
+    <div id="title-card">
+        <div id="title-header">
+            <h1 id="title-text">Madison Housing Development Timeline</h1>
+            <span id="expand-icon">▼</span>
+        </div>
+        <div id="title-content">
+            <p><strong>Purpose:</strong> This interactive map visualizes the chronological development of housing in Madison, Wisconsin. Watch as new homes appear on the map as you move through time.</p>
+            <p><strong>How to use:</strong> Drag the date slider at the bottom to travel through time and see when houses were built. Click on any house marker to see details about the construction date and address.</p>
+            <p><strong>Controls:</strong> Use the slider to navigate dates manually, or press the SPACE bar to auto-play through the timeline.</p>
+        </div>
+    </div>
+    <div id="map"></div>
+    <div id="timeline-container">
+        <div id="date-display">2020-01-01</div>
+        <input type="range" id="date-slider" min="0" max="1095" value="0" step="1">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script type="module" src="/static/js/madison/madison.js"></script>
+</body>
+</html>

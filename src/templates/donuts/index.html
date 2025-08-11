@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{title}}</title>
+  <link rel="stylesheet" href="/static/css/donuts/base.css">
+  <link rel="stylesheet" href="/static/css/donuts/layout.css">
+  <link rel="stylesheet" href="/static/css/donuts/left-section.css">
+  <link rel="stylesheet" href="/static/css/donuts/item-bar.css">
+  <link rel="stylesheet" href="/static/css/donuts/dropdown.css">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Left section with banner and centered image -->
+      {{> donuts/left.html}}
+
+      <!-- Middle section with title, update message, and stats -->
+      {{> donuts/middle.html}}
+
+      <!-- Right section with item list -->
+      {{> donuts/right.html}}
+    </div>
+
+    <script type="module" src="/static/js/donuts/utils.js"></script>
+    <script type="module" src="/static/js/donuts/shop.js"></script>
+    <script type="module" src="/static/js/donuts/environment.js"></script>
+    <script type="module" src="/static/js/donuts/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#title-card {
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 2px solid #1565c0;
+  transition: all 0.3s ease;
+}
+
+#title-card:hover {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+}
+
+#title-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#title-text {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+#expand-icon {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+#title-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin-top: 0;
+}
+
+#title-content.expanded {
+  max-height: 200px;
+  margin-top: 15px;
+}
+
+#title-content p {
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+#map {
+  flex: 1;
+  height: calc(100vh - 80px - 60px);
+}
+
+#timeline-container {
+  height: 80px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #ccc;
+}
+
+#date-slider {
+  flex: 1;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+#date-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #2196f3;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#date-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #2196f3;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+#date-display {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  min-width: 120px;
+}
+
+.house-marker {
+  background-color: #4caf50;
+  border: 2px solid #2e7d32;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+}
+
+.house-marker.new {
+  animation: popIn 0.3s ease-out;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

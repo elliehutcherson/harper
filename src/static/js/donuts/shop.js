@@ -55,7 +55,7 @@ export class Shop {
     const item_html_response = await fetch('/static/html/item.html');
     this.item_html_source = await item_html_response.text();
 
-    const items_json_response = await fetch('/static/json/items.json');
+    const items_json_response = await fetch('/static/json/donuts/items.json');
     const items_json = await items_json_response.text();
     let items = JSON.parse(items_json);
 
